@@ -26,7 +26,7 @@
 
 
 ```js
-const all = (arr, fn = Boolean) => arr.every(fn;
+const all = (arr, fn = Boolean) => arr.every(fn);
 ```
 
 <details>
