@@ -39,3 +39,26 @@ all([1, 2, 3]); // true
 
 </details>
 
+
+### allEqual
+
+检查数组中所有的元素是否都相等，是返回 `true`, 否则返回 `false`
+
+使用 `Array.prototype.every()` 去检查是否数组中所有的元素都与第一个元素严格相等
+
+```js
+const allEqual = arr => arr.every(val => val === arr[0]);
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+allEqual([1, 2, 3, 4, 5, 6]); // false
+allEqual([1, 1, 1, 1]) // true
+```
+
+</details>
+
+
+
