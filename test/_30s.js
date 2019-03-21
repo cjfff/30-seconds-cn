@@ -11,10 +11,14 @@ const arrayToCSV = (arr, delimiter = ',') =>
 const bifurcate = (arr, filter) =>
 	arr.reduce((acc, val, i) => (acc[filter[i] ? 0 : 1].push(val), acc), [[],[]])
 
+const bifurcateBy = (arr, fn) =>
+  arr.reduce((acc, val, i) => (acc[fn(val, i) ? 0 : 1 ].push(val), acc), [[], []])
+
 module.exports = {
 	all,
 	allEqual,
 	any,
 	arrayToCSV,
-	bifurcate
+	bifurcate,
+	bifurcateBy
 };
