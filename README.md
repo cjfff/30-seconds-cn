@@ -1,6 +1,6 @@
 # 30-seconds-cn
 
-每天学习一个 30-seconds-code 函数, 并翻译 =v=， 在此记录学习过程~~
+每天学习一个 30-seconds-code 函数, 看懂并写出自己的理解 =v=， 在此记录学习过程~~
 
 
 ## Contents
@@ -16,6 +16,7 @@
 * [`arrayToCSV`](#arrayToCSV)
 * [`bifurcate`](#bifurcate)
 * [`bifurcateBy`](#bifurcateBy)
+* [`chunk`](#chunk)
 
 </details>
 
@@ -35,7 +36,7 @@ const all = (arr, fn = Boolean) => arr.every(fn);
 ```
 
 <details>
-<summary>Examples</summary>
+<summary>例子</summary>
 
 ```js
 all([4,2,3], x => x > 1); // true
@@ -56,7 +57,7 @@ const allEqual = arr => arr.every(val => val === arr[0]);
 ```
 
 <details>
-<summary>Examples</summary>
+<summary>例子</summary>
 
 ```js
 allEqual([1, 2, 3, 4, 5, 6]); // false
@@ -77,7 +78,7 @@ const any = (arr, fn = Boolean) = arr.some(fn);
 ```
 
 <details>
-<summary>Examples</summary>
+<summary>例子</summary>
 
 ```js
 any([0, 1, 2, 0], x => x >= 2); // true
@@ -99,7 +100,7 @@ const arrayToCSV = (arr, delimiter = ',') =>
 ```
 
 <details>
-<summary>Examples</summary>
+<summary>例子</summary>
 
 ```js
 arrayToCSV([['a', 'b'], ['c', 'd']]); // '"a","b"\n"c","d"'
@@ -120,7 +121,7 @@ const bifurcate = (arr, filter) =>
   arr.reduce((acc, val, i) => (acc[filter[i] ? 0 : 1].push(val), acc), [[], []])
 ```
 <details>
-<summary>Examples</summary>
+<summary>例子</summary>
 
 ```js
 bifurcate(['beep', 'boop', 'foo', 'bar'], [true, true, false, true]); // [ [ 'beep', 'boop', 'bar' ], [ 'foo' ] ]
@@ -143,10 +144,36 @@ const bifurcateBy = (arr, fn) =>
 
 
 <details>
-<summary>Examples</summary>
+<summary>例子</summary>
 
 ```js
 bifurcateBy(["beep", "boop", "foo", "bar"], x => x[0] === "b") // [ [ 'beep', 'boop', 'bar' ], [ 'foo' ] ]
+```
+
+</details>
+
+
+
+### chunk
+
+把数组拆分成多个指定大小的子数组
+
+
+使用 `Array.from()` 去创建一个新的数组，使用特定函数生成 `chunks` 对数组进行填充, 使用 `Array.prototype.slice` 生成每一个 长度为 `size` 的 `chunk`。如果原数组不能被均匀的分配，最后一个 `chunk` 会把剩余的所有元素包含在内。
+
+
+```js
+const chunk = (arr, size) => 
+  Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+    arr.slice(i * size, i * size + size)
+  )
+```
+
+<details>
+<summary>例子</summary>
+
+```js
+chunk([1, 2, 3, 4, 5], 2); // [ [ 1, 2 ], [ 3, 4 ], [ 5 ] ]
 ```
 
 </details>

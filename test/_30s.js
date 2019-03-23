@@ -9,10 +9,24 @@ const arrayToCSV = (arr, delimiter = ',') =>
 
 
 const bifurcate = (arr, filter) =>
-	arr.reduce((acc, val, i) => (acc[filter[i] ? 0 : 1].push(val), acc), [[],[]])
+	arr.reduce((acc, val, i) => (acc[filter[i] ? 0 : 1].push(val), acc), [
+		[],
+		[]
+	])
 
 const bifurcateBy = (arr, fn) =>
-  arr.reduce((acc, val, i) => (acc[fn(val, i) ? 0 : 1 ].push(val), acc), [[], []])
+	arr.reduce((acc, val, i) => (acc[fn(val, i) ? 0 : 1].push(val), acc), [
+		[],
+		[]
+	])
+
+
+const chunk = (arr, size) =>
+	Array.from({
+			length: Math.ceil(arr.length / size)
+		}, (v, i) =>
+		arr.slice(i * size, i * size + size)
+	);
 
 module.exports = {
 	all,
@@ -20,5 +34,6 @@ module.exports = {
 	any,
 	arrayToCSV,
 	bifurcate,
-	bifurcateBy
+	bifurcateBy,
+	chunk
 };
