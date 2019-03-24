@@ -28,6 +28,9 @@ const chunk = (arr, size) =>
 		arr.slice(i * size, i * size + size)
 	);
 
+const compact = arr => arr.filter(Boolean)
+
+
 module.exports = {
 	all,
 	allEqual,
@@ -35,5 +38,6 @@ module.exports = {
 	arrayToCSV,
 	bifurcate,
 	bifurcateBy,
-	chunk
+	chunk,
+	compact
 };
