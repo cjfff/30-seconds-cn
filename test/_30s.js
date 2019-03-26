@@ -30,6 +30,7 @@ const chunk = (arr, size) =>
 
 const compact = arr => arr.filter(Boolean)
 
+const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0)
 
 module.exports = {
 	all,
@@ -39,5 +40,6 @@ module.exports = {
 	bifurcate,
 	bifurcateBy,
 	chunk,
-	compact
+	compact,
+	countOccurrences
 };

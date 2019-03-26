@@ -19,6 +19,7 @@
 * [`chunk`](#chunk)
 * [`compact`](#compact)
 * [`countBy`](#countBy)
+* [`countOccurrences`](#countOccurrences)
 
 </details>
 
@@ -221,6 +222,26 @@ const countBy = (arr, fn) =>
 ```js
 countBy([6.1, 4.2, 6.3], Math.floor); // {4: 1, 6: 2}
 countBy(['one', 'two', 'three'], 'length'); // {3: 2, 5: 1}
+```
+
+</details>
+
+
+### countOccurrences
+
+计算指定元素在数组中出现的次数
+
+使用 `Array.prototype.reduce()` 去创建一个计数器，每当指定元素出现时，计时器 + 1。
+
+```js
+const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0)
+```
+
+<details>
+<summary>例子</summary>
+
+```js
+console.log(countOccurrences([1, 1, 2, 1, 2, 3], 1));
 ```
 
 </details>
