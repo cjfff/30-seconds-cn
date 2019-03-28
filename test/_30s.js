@@ -32,6 +32,15 @@ const compact = arr => arr.filter(Boolean)
 
 const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0)
 
+const deepFlatten = arr => [].concat(...arr.map(v => Array.isArray(v) ? deepFlatten(v) : v))
+
+
+const difference = (a, b) => {
+	const s = new Set(b)
+	return a.filter(x => !s.has(x))
+}
+
+
 module.exports = {
 	all,
 	allEqual,
@@ -41,5 +50,7 @@ module.exports = {
 	bifurcateBy,
 	chunk,
 	compact,
-	countOccurrences
+	countOccurrences,
+	deepFlatten,
+	difference
 };
