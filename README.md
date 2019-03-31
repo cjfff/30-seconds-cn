@@ -22,6 +22,8 @@
 * [`countOccurrences`](#countOccurrences)
 * [`deepFlatten`](#deepFlatten)
 * [`difference`](#difference)
+* [`differenceWith`](#differenceWith)
+* [`drop`](#drop)
 
 </details>
 
@@ -293,4 +295,70 @@ const difference = (a, b) => {
 ```js
 difference([1, 2, 3], [1, 2, 4]); // [3]
 ```
+</details>
+
+
+### differenceWith
+
+传入的 `val` 数组与 `arr` 中的所有元素进行 `comp` 函数的对比，`filter` 出所有返回值不为 `true` 的元素
+
+使用 `Array.prototype.filter()` 和 `Array.prototype.findIndex()` 去寻找合适的值.
+
+```js
+const differenceWith = (arr, val, comp) => arr.filter(a => val.findIndex(b => comp(a, b)) === -1)
+
+// 认为更好理解的写法
+const differenceWith = (arr, val, comp) => arr.filter(a => !val.some(b => comp(a, b)))
+```
+
+<details>
+<summary>例子</summary>
+
+```js
+differenceWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0], (a, b) => Math.round(a) === Math.round(b));  // [1, 1.2]
+```
+
+</details>
+
+
+### drop
+
+使用 `Array.prototype.slice()` 使数组从左开始 丢弃 `n` 个元素，返回新数组
+
+
+
+```js
+const drop = (arr, n = 1) => arr.slice(n)
+```
+
+<details>
+<summary>例子</summary>
+
+```js
+drop([1, 2, 3]); // [2,3]
+drop([1, 2, 3], 2); // [3]
+drop([1, 2, 3], 42); // []
+```
+
+</details>
+
+
+### dropRight
+
+使用 `Array.prototype.slice()` 操作数组从右到左丢弃 `n` 个元素，返回新数组
+
+```js
+const dropRight = (arr, n = 1) => arr.slice(0, -n)
+```
+
+
+<details>
+<summary>例子</summary>
+
+```js
+dropRight([1, 2, 3]); // [1,2]
+dropRight([1, 2, 3], 2; // [1]
+dropRight([1, 2, 3], 42); // []
+```
+
 </details>
