@@ -40,6 +40,28 @@ const difference = (a, b) => {
 	return a.filter(x => !s.has(x))
 }
 
+const differenceBy = (a, b, fn) => {
+	const s = new Set(b.map(fn))
+	return a.map(fn).filter(v => !s.has(v))
+}
+
+
+const differenceWith = (arr, val, comp) => arr.filter(a => !val.some(b => comp(a, b)))
+
+const drop = (arr, n = 1) => arr.slice(n)
+
+const dropRight = (arr, n = 1) => arr.slice(0, -n)
+
+const dropRightWhile = (arr, func) => {
+	while (arr.length > 0 && !func(arr[arr.length - 1])) arr = arr.slice(0, -1);
+	return arr;
+}
+
+const dropWhile = (arr, func) => {
+	while (arr.length > 0 && !func(arr[0])) arr = arr.slice(1);
+	return arr
+}
+
 
 module.exports = {
 	all,
@@ -52,5 +74,11 @@ module.exports = {
 	compact,
 	countOccurrences,
 	deepFlatten,
-	difference
+	difference,
+	differenceBy,
+	differenceWith,
+	drop,
+	dropRight,
+	dropRightWhile,
+	dropWhile
 };
