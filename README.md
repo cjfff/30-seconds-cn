@@ -29,6 +29,7 @@
 * [`dropRightWhile`](#dropRightWhile)
 * [`dropWhile`](#dropWhile)
 * [`everyNth`](#everyNth)
+* [`filterFalsy`](#filterFalsy)
 
 
 </details>
@@ -454,6 +455,24 @@ const everyNth = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1);
 
 ```js
 everyNth([1, 2, 3, 4, 5, 6], 2)
+```
+
+</details>
+
+
+### filterFalsy
+
+使用 `Array.prototype.filter()` 过滤得到一个只包含 [`truthy`](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) 的新数组
+
+```js
+const filterFalsy = arr => arr.filter(Boolean)
+```
+
+<details>
+<summary>例子</summary>
+
+```js
+filterFalsy(['', true, {}, false, 'sample', 1, 0]) // [true, {}, 'sample', 1]
 ```
 
 </details>

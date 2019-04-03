@@ -64,6 +64,8 @@ const dropWhile = (arr, func) => {
 
 const everyNth = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1);
 
+const filterFalsy = arr => arr.filter(Boolean)
+
 
 module.exports = {
 	all,
@@ -83,5 +85,6 @@ module.exports = {
 	dropRight,
 	dropRightWhile,
 	dropWhile,
-	everyNth
+	everyNth,
+	filterFalsy
 };
