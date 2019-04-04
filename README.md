@@ -30,6 +30,7 @@
 * [`dropWhile`](#dropWhile)
 * [`everyNth`](#everyNth)
 * [`filterFalsy`](#filterFalsy)
+* [`filterNonUnique`](#filterNonUnique)
 
 
 </details>
@@ -473,6 +474,26 @@ const filterFalsy = arr => arr.filter(Boolean)
 
 ```js
 filterFalsy(['', true, {}, false, 'sample', 1, 0]) // [true, {}, 'sample', 1]
+```
+
+</details>
+
+
+### filterNonUnique
+
+
+
+使用 `Array.prototype.filter()` 筛选没有重复值的数组
+
+```js
+const filterNonUnique = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i))
+```
+
+<details>
+<summary>例子</summary>
+
+```js
+filterNonUnique([[1, 2, 2, 3, 4, 4, 5]])
 ```
 
 </details>
