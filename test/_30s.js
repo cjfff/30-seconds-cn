@@ -66,6 +66,8 @@ const everyNth = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1);
 
 const filterFalsy = arr => arr.filter(Boolean)
 
+const filterNonUniqueBy = (arr, fn) =>
+	arr.filter((v, i) => arr.every((x, j) => (i === j) === fn(v, x, i, j)))
 
 module.exports = {
 	all,
@@ -86,5 +88,6 @@ module.exports = {
 	dropRightWhile,
 	dropWhile,
 	everyNth,
-	filterFalsy
+	filterFalsy,
+	filterNonUniqueBy
 };
