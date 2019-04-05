@@ -30,6 +30,7 @@
 * [`dropWhile`](#dropWhile)
 * [`everyNth`](#everyNth)
 * [`filterFalsy`](#filterFalsy)
+* [`filterNonUnique`](#filterNonUnique)
 * [`filterNonUniqueBy`](#filterNonUniqueBy)
 
 
@@ -480,6 +481,27 @@ filterFalsy(['', true, {}, false, 'sample', 1, 0]) // [true, {}, 'sample', 1]
 
 
 
+
+### filterNonUnique
+
+
+
+使用 `Array.prototype.filter()` 筛选没有重复值的数组
+
+```js
+const filterNonUnique = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i))
+```
+
+<details>
+<summary>例子</summary>
+
+```js
+filterNonUnique([[1, 2, 2, 3, 4, 4, 5]])
+```
+
+</details>
+
+
 ### filterNonUniqueBy
 
 使用提供的比较函数，过滤掉数组中所有非唯一元素。
@@ -491,8 +513,6 @@ filterFalsy(['', true, {}, false, 'sample', 1, 0]) // [true, {}, 'sample', 1]
 const filterNonUniqueBy = (arr, fn) => 
   arr.filter((v, i) => arr.every((x, j) => (i === j) === fn(v, x, i, j)))
 ```
-
-
 
 <details>
 <summary>例子</summary>
@@ -511,3 +531,4 @@ filterNonUniqueBy(
 ```
 
 </details>
+
