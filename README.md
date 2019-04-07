@@ -32,6 +32,7 @@
 * [`filterFalsy`](#filterFalsy)
 * [`filterNonUnique`](#filterNonUnique)
 * [`filterNonUniqueBy`](#filterNonUniqueBy)
+* [`findLast`](#findLast)
 
 
 </details>
@@ -394,6 +395,7 @@ dropRight([1, 2, 3], 42); // []
 ```
 </details>
 
+<br>[⬆ Back to top](#contents)
 
 ### dropRightWhile
 
@@ -417,6 +419,7 @@ dropRightWhile([1, 2, 3, 4], n => n < 3); // [1, 2]
 
 </details>
 
+<br>[⬆ Back to top](#contents)
 
 ### dropWhile
 
@@ -440,6 +443,7 @@ dropWhile([1, 2, 3, 4], n => n >= 3); // [3, 4]
 
 </details>
 
+<br>[⬆ Back to top](#contents)
 
 ### everyNth
 
@@ -461,6 +465,7 @@ everyNth([1, 2, 3, 4, 5, 6], 2)
 
 </details>
 
+<br>[⬆ Back to top](#contents)
 
 ### filterFalsy
 
@@ -479,6 +484,7 @@ filterFalsy(['', true, {}, false, 'sample', 1, 0]) // [true, {}, 'sample', 1]
 
 </details>
 
+<br>[⬆ Back to top](#contents)
 
 
 
@@ -500,6 +506,8 @@ filterNonUnique([[1, 2, 2, 3, 4, 4, 5]])
 ```
 
 </details>
+
+<br>[⬆ Back to top](#contents)
 
 
 ### filterNonUniqueBy
@@ -532,3 +540,24 @@ filterNonUniqueBy(
 
 </details>
 
+<br>[⬆ Back to top](#contents)
+
+### findLast
+
+使用 `Array.prototype.filter()` 去对数组进行过滤，留下 `truthy` 值的元素，再对结果进行 `Array.prototype.pop()` 即得到过滤后数组的最后一个元素。
+
+```js
+const findLast = (arr, fn) => arr.filter(fn).pop()
+```
+
+<details>
+<summary>例子</summary>
+
+```js
+findLast([1, 2, 3, 4], n => n % 2 === 1); // 3
+```
+
+</details>
+
+
+<br>[⬆ Back to top](#contents)

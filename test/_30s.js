@@ -71,6 +71,7 @@ const filterNonUnique = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndexO
 const filterNonUniqueBy = (arr, fn) =>
 	arr.filter((v, i) => arr.every((x, j) => (i === j) === fn(v, x, i, j)))
 
+const findLast = (arr, fn) => arr.filter(fn).pop()
 
 module.exports = {
 	all,
@@ -93,5 +94,6 @@ module.exports = {
 	everyNth,
 	filterFalsy,
 	filterNonUnique,
-	filterNonUniqueBy
+	filterNonUniqueBy,
+	findLast
 };
