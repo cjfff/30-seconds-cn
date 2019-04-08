@@ -78,6 +78,12 @@ const flatten = (arr, depth = 1) =>
     a.concat(depth > 1 && Array.isArray(v) ? flatten(v, depth - 1) : v)
   , []);
 
+const forEachRight = (arr, cb) =>
+  arr
+    .slice(0)
+    .reverse()
+    .forEach(cb);
+
 module.exports = {
   all,
   allEqual,
@@ -101,5 +107,6 @@ module.exports = {
   filterNonUnique,
   filterNonUniqueBy,
   findLast,
-  flatten
+  flatten,
+  forEachRight
 };
