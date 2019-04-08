@@ -73,27 +73,33 @@ const filterNonUniqueBy = (arr, fn) =>
 
 const findLast = (arr, fn) => arr.filter(fn).pop()
 
+const flatten = (arr, depth = 1) =>
+  arr.reduce((a, v) =>
+    a.concat(depth > 1 && Array.isArray(v) ? flatten(v, depth - 1) : v)
+  , []);
+
 module.exports = {
-	all,
-	allEqual,
-	any,
-	arrayToCSV,
-	bifurcate,
-	bifurcateBy,
-	chunk,
-	compact,
-	countOccurrences,
-	deepFlatten,
-	difference,
-	differenceBy,
-	differenceWith,
-	drop,
-	dropRight,
-	dropRightWhile,
-	dropWhile,
-	everyNth,
-	filterFalsy,
-	filterNonUnique,
-	filterNonUniqueBy,
-	findLast
+  all,
+  allEqual,
+  any,
+  arrayToCSV,
+  bifurcate,
+  bifurcateBy,
+  chunk,
+  compact,
+  countOccurrences,
+  deepFlatten,
+  difference,
+  differenceBy,
+  differenceWith,
+  drop,
+  dropRight,
+  dropRightWhile,
+  dropWhile,
+  everyNth,
+  filterFalsy,
+  filterNonUnique,
+  filterNonUniqueBy,
+  findLast,
+  flatten
 };
