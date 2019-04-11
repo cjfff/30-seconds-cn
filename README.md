@@ -37,6 +37,8 @@
 * [`flatten`](#flatten)
 * [`forEachRight`](#forEachRight)
 * [`groupBy`](#groupBy)
+* [`head`](#head)
+
 
 </details>
 
@@ -671,10 +673,6 @@ const groupBy = (arr, fn) =>
     .reduce((acc, key, i) => (acc[key] = (acc[key] || []).concat(arr[i]), acc), {})
 ```
 
-
-<details>
-<summary>例子</summary>
-
 ```js
 groupBy([6.1, 4.2, 6.3], Math.floor); // {4: [4.2], 6: [6.1, 6.3]}
 groupBy(['one', 'two', 'three'], 'length')) // {3: ['one', 'two'], 5: ['three']}
@@ -682,4 +680,24 @@ groupBy(['one', 'two', 'three'], 'length')) // {3: ['one', 'two'], 5: ['three']}
 
 </details>
 
-<br>[⬆ Back to top](#content
+<br>[⬆ Back to top](#contents)
+
+### head
+
+利用下标 0 返回数组的第一项
+
+```js
+const head = arr => arr[0]
+```
+
+<details>
+<summary>例子</summary>
+
+```js
+
+head([1, 2, 3]); // 1
+```
+
+</details>
+
+<br>[⬆ Back to top](#contents)
