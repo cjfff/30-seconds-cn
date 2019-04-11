@@ -84,6 +84,11 @@ const forEachRight = (arr, cb) =>
     .reverse()
     .forEach(cb);
 
+
+
+const indexOfAll = (arr, val) =>
+  arr.reduce((acc, el, i) => (el == val ? [...acc, i] : acc), []);
+
 module.exports = {
   all,
   allEqual,
@@ -108,5 +113,6 @@ module.exports = {
   filterNonUniqueBy,
   findLast,
   flatten,
-  forEachRight
+  forEachRight,
+  indexOfAll
 };
