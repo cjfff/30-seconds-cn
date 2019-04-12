@@ -39,6 +39,7 @@
 * [`groupBy`](#groupBy)
 * [`head`](#head)
 * [`indexOfAll`](#indexOfAll)
+* [`initial`](#initial)
 
 
 </details>
@@ -724,6 +725,27 @@ const indexOfAll = (arr, val) => arr.reduce((acc, el, i) => el == val ? [...acc,
 indexOfAll([1, 2, 3, 1, 2, 3], 1); // [0, 3]
 ```
 
+
+</details>
+
+<br>[⬆ Back to top](#contents)
+
+
+### initial
+
+
+使用 `Array.prototype.slice(0, -1)` 去返回一个 除了最后一个元素外, 新的数组。
+
+```js
+const initial = arr => arr.slice(0, -1)
+```
+
+<details>
+<summary>例子</summary>
+
+```js
+initial([1, 2, 3]); // [1, 2]
+```
 
 </details>
 
