@@ -92,6 +92,10 @@ const indexOfAll = (arr, val) =>
 
 const initial = arr => arr.slice(0, -1);
 
+
+const initialize2DArray = (w, h, val = null) =>
+  Array.from({ length: h }).map(() => Array.from({ length: w }).fill(val));
+
 module.exports = {
   all,
   allEqual,
@@ -118,5 +122,6 @@ module.exports = {
   flatten,
   forEachRight,
   indexOfAll,
-  initial
+  initial,
+  initialize2DArray
 };
