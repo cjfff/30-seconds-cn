@@ -92,9 +92,14 @@ const indexOfAll = (arr, val) =>
 
 const initial = arr => arr.slice(0, -1);
 
-
 const initialize2DArray = (w, h, val = null) =>
   Array.from({ length: h }).map(() => Array.from({ length: w }).fill(val));
+
+const initializeArrayWithRange = (end, start = 0, step = 1) =>
+  Array.from(
+    { length: Math.ceil((end - start + 1) / step) },
+    (_, i) => i * step + start
+  );
 
 module.exports = {
   all,
@@ -123,5 +128,6 @@ module.exports = {
   forEachRight,
   indexOfAll,
   initial,
-  initialize2DArray
+  initialize2DArray,
+  initializeArrayWithRange
 };
