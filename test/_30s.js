@@ -101,6 +101,11 @@ const initializeArrayWithRange = (end, start = 0, step = 1) =>
     (_, i) => i * step + start
   );
 
+const initializeArrayWithRangeRight = (end, start = 0, step = 1) =>
+  Array.from({ length: Math.ceil((end + 1 - start) / step) }).map(
+    (v, i, arr) => (arr.length - i - 1) * step + start
+  );
+
 module.exports = {
   all,
   allEqual,
@@ -129,5 +134,6 @@ module.exports = {
   indexOfAll,
   initial,
   initialize2DArray,
-  initializeArrayWithRange
+  initializeArrayWithRange,
+  initializeArrayWithRangeRight
 };
