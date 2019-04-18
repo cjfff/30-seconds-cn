@@ -106,7 +106,8 @@ const initializeArrayWithRangeRight = (end, start = 0, step = 1) =>
     (v, i, arr) => (arr.length - i - 1) * step + start
   );
 
-const initializeArrayWithValues = (n, val = 0) => Array.from({ length: n }, () => val)
+const initializeArrayWithValues = (n, val = 0) =>
+  Array.from({ length: n }, () => val);
 
 const initializeNDArray = (val, ...args) =>
   args.length === 0
@@ -114,6 +115,11 @@ const initializeNDArray = (val, ...args) =>
     : Array.from({ length: args[0] }).map(() =>
         initializeNDArray(val, ...args.slice(1))
       );
+
+const intersection = (a, b) => {
+  const s = new Set(b);
+  return a.filter(x => s.has(x));
+};
 
 module.exports = {
   all,
@@ -146,5 +152,6 @@ module.exports = {
   initializeArrayWithRange,
   initializeArrayWithRangeRight,
   initializeArrayWithValues,
-  initializeNDArray
+  initializeNDArray,
+  intersection
 };
