@@ -121,6 +121,14 @@ const intersection = (a, b) => {
   return a.filter(x => s.has(x));
 };
 
+const intersectionBy = (a, b, fn) => {
+  const s = new Set(b.map(fn));
+  return a.filter(v => s.has(fn(v)));
+};
+
+const intersectionWith = (a, b, comp) =>
+  a.filter(x => b.findIndex(y => comp(x, y)) !== -1);
+
 module.exports = {
   all,
   allEqual,
@@ -153,5 +161,7 @@ module.exports = {
   initializeArrayWithRangeRight,
   initializeArrayWithValues,
   initializeNDArray,
-  intersection
+  intersection,
+  intersectionBy,
+  intersectionWith
 };
