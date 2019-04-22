@@ -129,6 +129,17 @@ const intersectionBy = (a, b, fn) => {
 const intersectionWith = (a, b, comp) =>
   a.filter(x => b.findIndex(y => comp(x, y)) !== -1);
 
+const isSorted = arr => {
+  // 初始化 方向值
+  let direction = -(arr[0] - arr[1]);
+  // 遍历数组
+  for (let [i, val] of arr.entries()) {
+    // 这里只有前后元素一致的时候才会进入 true 区域
+    direction = !direction ? -(arr[i - 1] - arr[i]) : direction;
+    if (i === arr.length - 1) return !direction ? 0 : direction;
+    else if ((val - arr[i + 1]) * direction > 0) return 0;
+  }
+};
 module.exports = {
   all,
   allEqual,
@@ -163,5 +174,6 @@ module.exports = {
   initializeNDArray,
   intersection,
   intersectionBy,
-  intersectionWith
+  intersectionWith,
+  isSorted
 };
