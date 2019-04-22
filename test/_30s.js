@@ -140,6 +140,12 @@ const isSorted = arr => {
     else if ((val - arr[i + 1]) * direction > 0) return 0;
   }
 };
+
+const join = (arr, sperator = ",") =>
+  arr.reduce((acc, val, i) => {
+    return i === arr.length - 1 ? acc + val : acc + val + sperator;
+  }, "");
+
 module.exports = {
   all,
   allEqual,
@@ -175,5 +181,6 @@ module.exports = {
   intersection,
   intersectionBy,
   intersectionWith,
-  isSorted
+  isSorted,
+  join
 };
