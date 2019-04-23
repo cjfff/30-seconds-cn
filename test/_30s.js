@@ -146,6 +146,18 @@ const join = (arr, sperator = ",") =>
     return i === arr.length - 1 ? acc + val : acc + val + sperator;
   }, "");
 
+const JSONtoCSV = (arr, columns, delimiter = ",") =>
+  [
+    columns.join(delimiter),
+    ...arr.map(obj =>
+      columns.reduce(
+        (acc, key) =>
+          `${acc}${!acc.length ? "" : delimiter}"${obj[key] || ""}"`,
+        ""
+      )
+    )
+  ].join("\n");
+
 module.exports = {
   all,
   allEqual,
@@ -182,5 +194,6 @@ module.exports = {
   intersectionBy,
   intersectionWith,
   isSorted,
-  join
+  join,
+  JSONtoCSV
 };
