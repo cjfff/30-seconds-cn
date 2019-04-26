@@ -158,6 +158,9 @@ const JSONtoCSV = (arr, columns, delimiter = ",") =>
     )
   ].join("\n");
 
+
+const last = arr => arr[arr.length - 1];
+
 module.exports = {
   all,
   allEqual,
@@ -195,5 +198,6 @@ module.exports = {
   intersectionWith,
   isSorted,
   join,
-  JSONtoCSV
+  JSONtoCSV,
+  last
 };
