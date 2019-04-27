@@ -53,6 +53,7 @@
 * [`JSONtoCSV`](#JSONtoCSV)
 * [`last`](#last)
 * [`longestItem`](#longestItem)
+* [`mapObject`](#mapObject)
 
 </details>
 
@@ -1111,6 +1112,32 @@ longestItem(...['a', 'ab', 'abc']); // 'abc'
 longestItem(...['a', 'ab', 'abc'], 'abcd'); // 'abcd'
 longestItem([1, 2, 3], [1, 2], [1, 2, 3, 4, 5]); // [1, 2, 3, 4, 5]
 longestItem([1, 2, 3], 'foobar'); // 'foobar'
+```
+
+</details>
+
+<br>[⬆ Back to top](#contents)
+
+
+
+### mapObject
+
+首先使用 `Array.prototype.map()` 用传入的 `fn` 创建一个新的数组，再遍历原来的数组，并使用对应下标下，`origin` 数组的项作为键, `fn new` 数组的项作为值，构建一个键值对的 `map`.
+
+```js 
+const mapObject = (arr, fn) => arr.reduce((acc, v) => (acc[v] = fn(v), acc), {})
+```
+
+
+<details>
+<summary>例子</summary>
+
+```js
+const squartIt = arr => mapObject(arr, a => a ** 2);
+squartIt([1, 2, 3]) // { '1': 1, '2': 4, '3': 9 }
+
+const getFirstChar = arr => mapObject(arr, v => v[0]);
+getFirstChar(['abc','hello', 'wrold']) // { abc: 'a', hello: 'h', wrold: 'w' }
 ```
 
 </details>
