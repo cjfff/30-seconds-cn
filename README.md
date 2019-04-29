@@ -56,6 +56,7 @@
 * [`mapObject`](#mapObject)
 * [`maxN`](#maxN)
 * [`minN`](#minN)
+* [`none`](#none)
 
 </details>
 
@@ -1185,6 +1186,27 @@ const minN = (arr, n = 1) => [...arr].sort((a, b) => b - a).slice(0, n)
 ```js
 minN([1, 2, 3]) // [ 1 ]
 minN([1, 2, 3], 2) // [ 1, 2 ]
+```
+
+</details>
+
+<br>[⬆ Back to top](#contents)
+
+
+### none
+
+使用 `Array.prototype.some()` 去判断是否所有的元素都不符合 `fn` 的判断, 第二个参数可以省略，默认是 `Boolean`
+
+```js
+const none = (arr, fn = Boolean) => !arr.some(fn)
+```
+
+<details>
+<summary>例子</summary>
+
+```js
+none([0, 0, 0]); // true
+none([0, 1, 3, 0]); // false
 ```
 
 </details>

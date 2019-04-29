@@ -171,6 +171,9 @@ const maxN = (arr, n = 1) => [...arr].sort((a, b) => b - a).slice(0, n);
 
 const minN = (arr, n = 1) =>  arr.slice(0).sort((a, b) => a - b).slice(0, n)
 
+
+const none = (arr, fn = Boolean) => !arr.some(fn);
+
 module.exports = {
   all,
   allEqual,
@@ -213,5 +216,6 @@ module.exports = {
   longestItem,
   mapObject,
   maxN,
-  minN
+  minN,
+  none
 };
