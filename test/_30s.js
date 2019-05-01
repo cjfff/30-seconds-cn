@@ -174,6 +174,10 @@ const minN = (arr, n = 1) =>  arr.slice(0).sort((a, b) => a - b).slice(0, n)
 
 const none = (arr, fn = Boolean) => !arr.some(fn);
 
+const nthElement = (arr, n = 0) =>
+  (n === -1 ? arr.slice(n) : arr.slice(0, n + 1))[0];
+
+
 module.exports = {
   all,
   allEqual,
@@ -217,5 +221,6 @@ module.exports = {
   mapObject,
   maxN,
   minN,
-  none
+  none,
+  nthElement
 };
