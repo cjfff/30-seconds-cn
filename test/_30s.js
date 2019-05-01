@@ -177,6 +177,8 @@ const none = (arr, fn = Boolean) => !arr.some(fn);
 const nthElement = (arr, n = 0) =>
   (n === -1 ? arr.slice(n) : arr.slice(0, n + 1))[0];
 
+const offset = (arr, offset) => [...arr.slice(offset), ...arr.slice(0, offset)];
+
 
 module.exports = {
   all,
@@ -222,5 +224,6 @@ module.exports = {
   maxN,
   minN,
   none,
-  nthElement
+  nthElement,
+  offset
 };
