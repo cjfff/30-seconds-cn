@@ -59,6 +59,7 @@
 * [`none`](#none)
 * [`nthElement`](#nthElement)
 * [`offset`](#offset)
+* [`partition`](#partition)
 
 </details>
 
@@ -1253,6 +1254,35 @@ const offset = (arr, offset) => [...arr.slice(offset), ...arr.slice(0, offset)]
 offset([1, 2, 3, 4, 5, 6], 3); // [4, 5, 6, 1, 2, 3]
 offset([1, 2, 3, 4, 5, 6], -2);  // [5, 6, 1, 2, 3, 4]
 offset([1, 2, 3, 4, 5, 6]); // [1, 2, 3, 4, 5, 6]
+```
+
+</details>
+
+<br>[⬆ Back to top](#contents)
+
+
+### partition
+
+对传入的数组依据提供的函数进行分类，`true` `false` 各为一组
+
+使用 `Array.prototype.reduce()` ，首先创建一个有两个数组的数组为初始值，再对每个元素进行 `fn` 的调用，返回值为 `true` 就加入第一个数组，`false` 就加入第二个数组。使用 `Array.prototype.push()`。
+
+```js
+const partition = (arr, fn = Boolean) =>
+  arr.reduce(
+    (acc, val, i, arr) => (acc[fn(val, i, arr) ? 0 : 1].push(val), acc),
+    [[], []]
+  );
+```
+
+
+<details>
+<summary>例子</summary
+
+
+```js
+partition([0, 1, 2, 3, 4, 5, 6]); // [[1,2,3,4,5,6], [0]]
+partition([0, 1, 2, 3, 4, 5, 6], n => n > 3); // [[4,5,6], [0,1,2,3]]
 ```
 
 </details>

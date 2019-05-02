@@ -179,6 +179,11 @@ const nthElement = (arr, n = 0) =>
 
 const offset = (arr, offset) => [...arr.slice(offset), ...arr.slice(0, offset)];
 
+const partition = (arr, fn = Boolean) =>
+  arr.reduce(
+    (acc, val, i, arr) => (acc[fn(val, i, arr) ? 0 : 1].push(val), acc),
+    [[], []]
+  );
 
 module.exports = {
   all,
@@ -225,5 +230,6 @@ module.exports = {
   minN,
   none,
   nthElement,
-  offset
+  offset,
+  partition
 };
