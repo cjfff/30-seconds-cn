@@ -209,6 +209,15 @@ const pull = (arr, ...args) => {
   pulled.forEach(v => arr.push(v));
 };
 
+
+const pullAtIndex = (arr, pullArr) => {
+  let removed = [],
+    pulled = [];
+  arr.forEach((v, i) => (pullArr.includes(i) ? removed : pulled).push(v));
+  arr.length = 0;
+  pulled.forEach(v => arr.push(v));
+  return removed;
+};
 module.exports = {
   all,
   allEqual,
@@ -257,5 +266,6 @@ module.exports = {
   offset,
   partition,
   permutations,
-  pull
+  pull,
+  pullAtIndex
 };
