@@ -230,6 +230,19 @@ const pullAtValue = (arr, valueArr) => {
   return removed
 }
 
+const pullBy = (
+  arr,
+  pullArr,
+  fn = () => {
+    throw Error("fn is must be");
+  }
+) => {
+  let argsState = new Set(pullArr.map(fn));
+  let pulled = arr.filter(v => !argsState.has(fn(v)));
+  arr.length = 0;
+  pulled.forEach(v => arr.push(v));
+};
+
 module.exports = {
   all,
   allEqual,
@@ -280,5 +293,6 @@ module.exports = {
   permutations,
   pull,
   pullAtIndex,
-  pullAtValue
+  pullAtValue,
+  pullBy
 };
