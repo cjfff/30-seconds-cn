@@ -243,6 +243,13 @@ const pullBy = (
   pulled.forEach(v => arr.push(v));
 };
 
+
+const reducedFilter = (data, keys, fn) =>
+  data
+    .filter(fn)
+    .map(el => keys.reduce((acc, key) => ((acc[key] = el[key]), acc), {}));
+
+
 module.exports = {
   all,
   allEqual,
@@ -294,5 +301,6 @@ module.exports = {
   pull,
   pullAtIndex,
   pullAtValue,
-  pullBy
+  pullBy,
+  reducedFilter
 };
