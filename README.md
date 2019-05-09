@@ -66,6 +66,7 @@
 * [`pullAtValue`](#pullAtValue)
 * [`pullBy`](#pullBy)
 * [`reducedFilter`](#reducedFilter)
+* [`reduceSuccessive`](#reduceSuccessive)
 
 
 </details>
@@ -1478,6 +1479,27 @@ const data = [
 ];
 
 reducedFilter(data, ["id", "name"], item => item.age > 24); // [{ id: 2, name: 'mike'}]
+```
+
+</details>
+
+<br>[⬆ Back to top](#contents)
+
+
+### reduceSuccessive
+
+对数组的每个元素执行提供的函数(从左到右)，再返回一个新的数组。使用 `Array.prototype.reduce()` 去对每个元素应用提供的函数，并存储新的数组。
+
+```js
+const reduceSuccessive = (arr, fn, acc) =>
+  arr.reduce((res, v) => (res.push(fn(res.slice(-1)[0], v)), res), [acc]);
+```
+
+<details>
+<summary>例子</summary
+
+```js
+reduceSuccessive([1, 2, 3, 4, 5, 6], (acc, v) => acc + v, 0) // [ 0, 1, 3, 6, 10, 15, 21 ]
 ```
 
 </details>

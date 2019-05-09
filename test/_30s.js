@@ -158,7 +158,6 @@ const JSONtoCSV = (arr, columns, delimiter = ",") =>
     )
   ].join("\n");
 
-
 const last = arr => arr[arr.length - 1];
 
 const longestItem = (...vals) =>
@@ -169,8 +168,11 @@ const mapObject = (arr, fn) =>
 
 const maxN = (arr, n = 1) => [...arr].sort((a, b) => b - a).slice(0, n);
 
-const minN = (arr, n = 1) =>  arr.slice(0).sort((a, b) => a - b).slice(0, n)
-
+const minN = (arr, n = 1) =>
+  arr
+    .slice(0)
+    .sort((a, b) => a - b)
+    .slice(0, n);
 
 const none = (arr, fn = Boolean) => !arr.some(fn);
 
@@ -200,7 +202,7 @@ const permutations = arr => {
       ),
     []
   );
-};  
+};
 
 const pull = (arr, ...args) => {
   let argState = Array.isArray(args[0]) ? args[0] : args;
@@ -208,7 +210,6 @@ const pull = (arr, ...args) => {
   arr.length = 0;
   pulled.forEach(v => arr.push(v));
 };
-
 
 const pullAtIndex = (arr, pullArr) => {
   let removed = [],
@@ -221,14 +222,14 @@ const pullAtIndex = (arr, pullArr) => {
 
 const pullAtValue = (arr, valueArr) => {
   let removed = [],
-    pulled = []
+    pulled = [];
 
-  arr.forEach(v => (valueArr.includes(v) ? removed : pulled).push(v))
+  arr.forEach(v => (valueArr.includes(v) ? removed : pulled).push(v));
 
   arr.length = 0;
-  pulled.forEach(v => arr.push(v))
-  return removed
-}
+  pulled.forEach(v => arr.push(v));
+  return removed;
+};
 
 const pullBy = (
   arr,
@@ -243,12 +244,13 @@ const pullBy = (
   pulled.forEach(v => arr.push(v));
 };
 
-
 const reducedFilter = (data, keys, fn) =>
   data
     .filter(fn)
     .map(el => keys.reduce((acc, key) => ((acc[key] = el[key]), acc), {}));
 
+const reduceSuccessive = (arr, fn, acc) =>
+  arr.reduce((res, v) => (res.push(fn(res.slice(-1)[0], v)), res), [acc]);
 
 module.exports = {
   all,
@@ -302,5 +304,6 @@ module.exports = {
   pullAtIndex,
   pullAtValue,
   pullBy,
-  reducedFilter
+  reducedFilter,
+  reduceSuccessive
 };
