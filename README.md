@@ -67,6 +67,7 @@
 * [`pullBy`](#pullBy)
 * [`reducedFilter`](#reducedFilter)
 * [`reduceSuccessive`](#reduceSuccessive)
+* [`reduceWhich`](#reduceWhich)
 
 
 </details>
@@ -1501,6 +1502,29 @@ const reduceSuccessive = (arr, fn, acc) =>
 ```js
 reduceSuccessive([1, 2, 3, 4, 5, 6], (acc, v) => acc + v, 0) // [ 0, 1, 3, 6, 10, 15, 21 ]
 ```
+
+</details>
+
+<br>[⬆ Back to top](#contents)
+
+
+### reduceWhich
+
+根据提供的比较规则， 返回数组的最大值或最小值，使用 `Array.prototype.reduce()` 根据`comparator` 比较函数获得合适的值， 如果忽略第二个参数， `comparator` 函数，将会默认返回数组的最小值。
+
+```js
+const reduceWhich = (arr, comparator = (a, b) => a - b) => 
+    arr.reduce((a, b) => (comparator(a, b) >= 0 ? b : a))
+```
+
+<details>
+<summary>例子</summary
+
+```js
+reduceWhich([5, 10, 1], (a, b) => b - a); // 10
+reduceWhich([{ age: 18 }, { age: 20 }, { age: 30 }], (a, b) => a.age - b.age); // { age: 18 }
+```
+
 
 </details>
 
