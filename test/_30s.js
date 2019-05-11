@@ -254,6 +254,8 @@ const reduceSuccessive = (arr, fn, acc) =>
 
 const reduceWhich = (arr, comparator = (a, b) => a - b) => arr.reduce((a, b) => (comparator(a, b) >= 0 ? b : a))
 
+const reject = (arr, pred) => arr.filter((...args) => !pred(...args));
+
 module.exports = {
   all,
   allEqual,
@@ -308,5 +310,6 @@ module.exports = {
   pullBy,
   reducedFilter,
   reduceSuccessive,
-  reduceWhich
+  reduceWhich,
+  reject
 };

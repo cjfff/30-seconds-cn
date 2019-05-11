@@ -68,7 +68,7 @@
 * [`reducedFilter`](#reducedFilter)
 * [`reduceSuccessive`](#reduceSuccessive)
 * [`reduceWhich`](#reduceWhich)
-
+* [`reject`](#reject)
 
 </details>
 
@@ -1523,6 +1523,27 @@ const reduceWhich = (arr, comparator = (a, b) => a - b) =>
 ```js
 reduceWhich([5, 10, 1], (a, b) => b - a); // 10
 reduceWhich([{ age: 18 }, { age: 20 }, { age: 30 }], (a, b) => a.age - b.age); // { age: 18 }
+```
+
+
+</details>
+
+<br>[⬆ Back to top](#contents)
+
+### reject
+
+此为一个数组判定任务，类似于 `Array.prototype.filter()` 但是和 filter 不同，它会把不符合结果的元素过滤出来，即结果`pred(x) === flase`。
+
+```js
+const reject = (arr, pred) => arr.filter((...args) => !pred(...args))
+```
+
+<details>
+<summary>例子</summary
+
+```js
+console.log(reject([1, 2, 3, 4, 5, 6], v => v > 3)); // [1, 2, 3]
+console.log(reject([{age: 18}, {age: 20},{age:24}], ({age}) => age > 20)); // [{age:18}, {age:20}]
 ```
 
 
