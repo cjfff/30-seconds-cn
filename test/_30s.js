@@ -256,6 +256,14 @@ const reduceWhich = (arr, comparator = (a, b) => a - b) => arr.reduce((a, b) => 
 
 const reject = (arr, pred) => arr.filter((...args) => !pred(...args));
 
+const remove = (arr, func) =>
+  Array.isArray(arr)
+    ? arr.filter(func).reduce((acc, val) => {
+        arr.splice(arr.indexOf(val), 1);
+        return [...acc, val];
+      }, [])
+    : [];
+
 module.exports = {
   all,
   allEqual,
@@ -311,5 +319,6 @@ module.exports = {
   reducedFilter,
   reduceSuccessive,
   reduceWhich,
-  reject
+  reject,
+  remove
 };
