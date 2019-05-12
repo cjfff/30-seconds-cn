@@ -252,7 +252,8 @@ const reducedFilter = (data, keys, fn) =>
 const reduceSuccessive = (arr, fn, acc) =>
   arr.reduce((res, v) => (res.push(fn(res.slice(-1)[0], v)), res), [acc]);
 
-const reduceWhich = (arr, comparator = (a, b) => a - b) => arr.reduce((a, b) => (comparator(a, b) >= 0 ? b : a))
+const reduceWhich = (arr, comparator = (a, b) => a - b) =>
+  arr.reduce((a, b) => (comparator(a, b) >= 0 ? b : a));
 
 const reject = (arr, pred) => arr.filter((...args) => !pred(...args));
 
@@ -264,6 +265,7 @@ const remove = (arr, func) =>
       }, [])
     : [];
 
+const sample = arr => arr[Math.floor(Math.random() * arr.length)];
 module.exports = {
   all,
   allEqual,
@@ -320,5 +322,6 @@ module.exports = {
   reduceSuccessive,
   reduceWhich,
   reject,
-  remove
+  remove,
+  sample
 };
