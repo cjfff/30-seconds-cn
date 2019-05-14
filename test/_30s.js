@@ -282,6 +282,14 @@ const shank = (arr, index = 0, delCount = 0, ...elements) =>
     .concat(elements)
     .concat(arr.slice(index + delCount));
 
+const shuffle = ([...arr]) => {
+  let m = arr.length;
+  while (m) {
+    let i = Math.floor(Math.random() * m--);
+    [arr[m], arr[i]] = [arr[i], arr[m]];
+  }
+  return arr;
+};    
 module.exports = {
   all,
   allEqual,
@@ -341,5 +349,6 @@ module.exports = {
   remove,
   sample,
   sampleSize,
-  shank
+  shank,
+  shuffle
 };
