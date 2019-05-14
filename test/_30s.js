@@ -276,6 +276,12 @@ const sampleSize = ([...arr], n = 1) => {
   return arr.slice(0, n);
 };
 
+const shank = (arr, index = 0, delCount = 0, ...elements) =>
+  arr
+    .slice(0, index)
+    .concat(elements)
+    .concat(arr.slice(index + delCount));
+
 module.exports = {
   all,
   allEqual,
@@ -334,5 +340,6 @@ module.exports = {
   reject,
   remove,
   sample,
-  sampleSize
+  sampleSize,
+  shank
 };
