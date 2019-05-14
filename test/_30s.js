@@ -290,6 +290,9 @@ const shuffle = ([...arr]) => {
   }
   return arr;
 };    
+
+const similarity = (arr, values) => arr.filter(v => values.includes(v));
+
 module.exports = {
   all,
   allEqual,
@@ -350,5 +353,6 @@ module.exports = {
   sample,
   sampleSize,
   shank,
-  shuffle
+  shuffle,
+  similarity
 };

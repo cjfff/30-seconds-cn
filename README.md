@@ -73,6 +73,7 @@
 * [`sample`](#sample)
 * [`sampleSize`](#sampleSize)
 * [`shuffle`](#shuffle)
+* [`similarity`](#similarity)
 
 </details>
 
@@ -1684,6 +1685,26 @@ const shuffle = ([...arr]) => {
 ```js
 const arr = [1,2,3,4,5,7,8,9,10]
 console.log(shuffle(arr)); // [ 3, 4, 10, 1, 5, 9, 7, 2, 8 ]
+```
+
+</details>
+
+<br>[⬆ Back to top](#contents)
+
+
+### similarity
+
+返回2个数组的交集，使用 `Array.prototype.filter()` 把不在 `values` 数组中的元素过滤，使用 `Array.prototype.includes()` 函数进行判断。
+
+```js
+const similarity = (arr, values) => arr.filter(v => values.includes(v))
+```
+
+<details>
+<summary>例子</summary
+
+```js
+similarity([1, 2, 3], [1, 2, 4]); // [1, 2]);
 ```
 
 </details>
