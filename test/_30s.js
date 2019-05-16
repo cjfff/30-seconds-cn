@@ -293,6 +293,13 @@ const shuffle = ([...arr]) => {
 
 const similarity = (arr, values) => arr.filter(v => values.includes(v));
 
+
+const sortedIndex = (arr, n) => {
+  const isDescending = arr[0] > arr[arr.length - 1];
+  const index = arr.findIndex(el => (isDescending ? n >= el : n <= el));
+  return index === -1 ? arr.length : index;
+};
+
 module.exports = {
   all,
   allEqual,
@@ -354,5 +361,6 @@ module.exports = {
   sampleSize,
   shank,
   shuffle,
-  similarity
+  similarity,
+  sortedIndex
 };
