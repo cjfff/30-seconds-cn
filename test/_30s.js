@@ -300,6 +300,15 @@ const sortedIndex = (arr, n) => {
   return index === -1 ? arr.length : index;
 };
 
+const sortedIndexBy = (arr, n, fn) => {
+  const isDescending = fn(arr[0]) > fn(arr[arr.length - 1]);
+  const val = fn(n);
+  const index = arr.findIndex(el =>
+    isDescending ? val >= fn(el) : val <= fn(el)
+  );
+  return index === -1 ? arr.length : index;
+};
+
 module.exports = {
   all,
   allEqual,
@@ -362,5 +371,6 @@ module.exports = {
   shank,
   shuffle,
   similarity,
-  sortedIndex
+  sortedIndex,
+  sortedIndexBy
 };
