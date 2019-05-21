@@ -79,6 +79,7 @@
 * [`sortedLastIndex`](#sortedLastIndex)
 * [`sortedLastIndexBy`](#sortedLastIndexBy)
 * [`stableSort`](#stableSort)
+* [`symmetricDifference`](#symmetricDifference)
 
 </details>
 
@@ -1855,6 +1856,31 @@ const arr2 = [
 console.log(stableSort(arr2, (a, b) => a.age - b.age)); // [ { age: 22, name: 'lucy' }, { age: 22, name: 'andi' }, { age: 24, name: 'TIM' }, { age: 28, name: 'joke' },{ age: 30, name: 'tom' } ]
 ```
 
+
+</details>
+
+<br>[⬆ Back to top](#contents)
+
+
+### symmetricDifference
+
+返回2个数组之间的对称差（不进行去重）。为2个数组各创建一个 `Set`，然后对其各数组使用 `Array.prototype.filter()` 筛选出不在另外一个数组中的值。
+
+```js
+const symmetricDifference = (a, b) => {
+  const sA = new Set(a),
+    sB = new Set(b);
+  return [...a.filter(x => !sB.has(x)), ...b.filter(x => !sA.has(x))];
+};
+```
+
+<details>
+<summary>例子</summary
+
+```js
+symmetricDifference([1, 2, 3], [1, 2, 4]); // [3, 4]
+symmetricDifference([1, 2, 2], [1, 3, 1]); // [2, 2, 3]);
+```
 
 </details>
 

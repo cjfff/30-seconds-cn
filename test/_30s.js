@@ -289,10 +289,9 @@ const shuffle = ([...arr]) => {
     [arr[m], arr[i]] = [arr[i], arr[m]];
   }
   return arr;
-};    
+};
 
 const similarity = (arr, values) => arr.filter(v => values.includes(v));
-
 
 const sortedIndex = (arr, n) => {
   const isDescending = arr[0] > arr[arr.length - 1];
@@ -327,13 +326,17 @@ const sortedLastIndexBy = (arr, n, fn) => {
   return index === -1 ? 0 : arr.length - index;
 };
 
-
 const stableSort = (arr, compare) =>
   arr
     .map((item, index) => ({ item, index }))
     .sort((a, b) => compare(a.item, b.item) || a.index - b.index)
     .map(({ item }) => item);
 
+const symmetricDifference = (a, b) => {
+  const sA = new Set(a),
+    sB = new Set(b);
+  return [...a.filter(x => !sB.has(x)), ...b.filter(x => !sA.has(x))];
+};
 module.exports = {
   all,
   allEqual,
@@ -400,5 +403,6 @@ module.exports = {
   sortedIndexBy,
   sortedLastIndex,
   sortedLastIndexBy,
-  stableSort
+  stableSort,
+  symmetricDifference
 };
