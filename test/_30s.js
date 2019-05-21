@@ -337,6 +337,13 @@ const symmetricDifference = (a, b) => {
     sB = new Set(b);
   return [...a.filter(x => !sB.has(x)), ...b.filter(x => !sA.has(x))];
 };
+
+const symmetricDifferenceBy = (a, b, fn) => {
+  let sA = new Set(a.map(fn)),
+    sB = new Set(b.map(fn));
+  return [...a.filter(x => !sB.has(fn(x))), ...b.filter(x => !sA.has(fn(x)))];
+};
+
 module.exports = {
   all,
   allEqual,
@@ -404,5 +411,6 @@ module.exports = {
   sortedLastIndex,
   sortedLastIndexBy,
   stableSort,
-  symmetricDifference
+  symmetricDifference,
+  symmetricDifferenceBy
 };
