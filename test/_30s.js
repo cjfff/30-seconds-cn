@@ -344,6 +344,10 @@ const symmetricDifferenceBy = (a, b, fn) => {
   return [...a.filter(x => !sB.has(fn(x))), ...b.filter(x => !sA.has(fn(x)))];
 };
 
+
+const tail = arr => (arr.length > 1 ? arr.slice(1) : arr);
+
+
 module.exports = {
   all,
   allEqual,
@@ -412,5 +416,6 @@ module.exports = {
   sortedLastIndexBy,
   stableSort,
   symmetricDifference,
-  symmetricDifferenceBy
+  symmetricDifferenceBy,
+  tail
 };
