@@ -82,6 +82,7 @@
 * [`symmetricDifference`](#symmetricDifference)
 * [`symmetricDifferenceBy`](#symmetricDifferenceBy)
 * [`tail`](#tail)
+* [`take`](#take)
 
 </details>
 
@@ -1930,6 +1931,27 @@ const tail = (arr) => arr.length > 1 ? arr.slice(1) : arr
 ```js
 [1, 2, 3];
 ```
+</details>
+
+<br>[⬆ Back to top](#contents)
+
+
+### take
+
+使用 `Array.prototype.slice()` 投创建一个数组的切片，从数组开头取 `n` 个元素。
+
+```js
+const take = (arr, n = 1) => arr.slice(0, n)
+```
+
+<details>
+<summary>例子</summary
+
+```js
+console.log(take([1, 2, 3])); // [1]
+console.log(take([1, 2, 3], 3)); // [1, 2, 3]
+```
+
 </details>
 
 <br>[⬆ Back to top](#contents)
