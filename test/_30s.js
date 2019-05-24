@@ -350,6 +350,8 @@ const tail = arr => (arr.length > 1 ? arr.slice(1) : arr);
 
 const take = (arr, n = 1) => arr.slice(0, n);
 
+const takeRight = (arr, n = 1) => arr.slice(arr.length - n, arr.length);
+
 module.exports = {
   all,
   allEqual,
@@ -420,5 +422,6 @@ module.exports = {
   symmetricDifference,
   symmetricDifferenceBy,
   tail,
-  take
+  take,
+  takeRight
 };

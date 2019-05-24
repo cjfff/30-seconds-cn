@@ -83,6 +83,7 @@
 * [`symmetricDifferenceBy`](#symmetricDifferenceBy)
 * [`tail`](#tail)
 * [`take`](#take)
+* [`takeRight`](#takeRight)
 
 </details>
 
@@ -1950,6 +1951,27 @@ const take = (arr, n = 1) => arr.slice(0, n)
 ```js
 console.log(take([1, 2, 3])); // [1]
 console.log(take([1, 2, 3], 3)); // [1, 2, 3]
+```
+
+</details>
+
+<br>[⬆ Back to top](#contents)
+
+
+### takeRight
+
+从右到左返回数组的 `n` 个元素，使用 `Array.prototype.slice()` 去创建一个从右到左 `n` 位的拷贝。
+
+```js
+const takeRight = (arr, n = 1) => arr.slice(arr.length - n, arr.length)
+```
+
+<details>
+<summary>例子</summary
+
+```js
+takeRight([1, 2, 3], 2); // [ 2, 3 ]
+takeRight([1, 2, 3]); // [3]
 ```
 
 </details>
