@@ -352,6 +352,10 @@ const take = (arr, n = 1) => arr.slice(0, n);
 
 const takeRight = (arr, n = 1) => arr.slice(arr.length - n, arr.length);
 
+const takeRightWhile = (arr, func) =>
+  arr.reduceRight((acc, el) => (func(el) ? acc : [el, ...acc]), []);
+
+
 module.exports = {
   all,
   allEqual,
@@ -423,5 +427,6 @@ module.exports = {
   symmetricDifferenceBy,
   tail,
   take,
-  takeRight
+  takeRight,
+  takeRightWhile
 };
