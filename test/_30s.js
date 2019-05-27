@@ -344,9 +344,7 @@ const symmetricDifferenceBy = (a, b, fn) => {
   return [...a.filter(x => !sB.has(fn(x))), ...b.filter(x => !sA.has(fn(x)))];
 };
 
-
 const tail = arr => (arr.length > 1 ? arr.slice(1) : arr);
-
 
 const take = (arr, n = 1) => arr.slice(0, n);
 
@@ -355,6 +353,10 @@ const takeRight = (arr, n = 1) => arr.slice(arr.length - n, arr.length);
 const takeRightWhile = (arr, func) =>
   arr.reduceRight((acc, el) => (func(el) ? acc : [el, ...acc]), []);
 
+const takeWhile = (arr, func) => {
+  for (const [i, val] of arr.entries()) if (func(val)) return arr.slice(0, i);
+  return arr;
+};
 
 module.exports = {
   all,
@@ -428,5 +430,6 @@ module.exports = {
   tail,
   take,
   takeRight,
-  takeRightWhile
+  takeRightWhile,
+  takeWhile
 };
