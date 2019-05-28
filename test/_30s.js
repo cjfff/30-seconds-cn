@@ -358,6 +358,13 @@ const takeWhile = (arr, func) => {
   return arr;
 };
 
+const toHash = (object, key) =>
+  Array.prototype.reduce.call(
+    object,
+    (acc, data, index) => ((acc[!key ? index : data[key]] = data), acc),
+    {}
+  );
+
 module.exports = {
   all,
   allEqual,
@@ -431,5 +438,6 @@ module.exports = {
   take,
   takeRight,
   takeRightWhile,
-  takeWhile
+  takeWhile,
+  toHash
 };
