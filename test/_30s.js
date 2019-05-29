@@ -365,6 +365,8 @@ const toHash = (object, key) =>
     {}
   );
 
+const union = (a, b) => Array.from(new Set([...a, ...b]));
+
 module.exports = {
   all,
   allEqual,
@@ -439,5 +441,6 @@ module.exports = {
   takeRight,
   takeRightWhile,
   takeWhile,
-  toHash
+  toHash,
+  union
 };

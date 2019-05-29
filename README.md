@@ -87,6 +87,7 @@
 * [`takeRightWhile`](#takeRightWhile)
 * [`takeWhile`](#takeWhile)
 * [`toHash`](#toHash)
+* [`union`](#union)
 
 </details>
 
@@ -2066,6 +2067,27 @@ managers.forEach(
     }, toHash(users, "id")))
 );
 console.table(typeof managers[0].employees, managers[0].employees); // [ { manager:1, employees: [ { id: 2, first: "Joe" }, { id: 3, first: "Moe" } ] } ]
+```
+
+</details>
+
+<br>[⬆ Back to top](#contents)
+
+
+### union
+
+给2个数组去重。对 数组 `a`, `b` 使用解构符号后， 创建一个 `Set` ，再把结果用 `Array.from()` 变成数组。
+
+```js
+const union = (a, b) => Array.from(new Set([...a, ...b]))
+```
+
+
+<details>
+<summary>例子</summary
+
+```js
+console.log(union([1, 2, 3], [4, 3, 2])) // [1,2,3,4];
 ```
 
 </details>
