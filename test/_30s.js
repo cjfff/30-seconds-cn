@@ -372,6 +372,8 @@ const unionWith = (a, b, comp) =>
     new Set([...a, ...b.filter(x => a.findIndex(y => comp(x, y)) == -1)])
   );
 
+const uniqueElements = arr => [...new Set(arr)];
+
 module.exports = {
   all,
   allEqual,
@@ -448,5 +450,6 @@ module.exports = {
   takeWhile,
   toHash,
   union,
-  unionWith
+  unionWith,
+  uniqueElements
 };

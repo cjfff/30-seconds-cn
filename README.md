@@ -89,6 +89,7 @@
 * [`toHash`](#toHash)
 * [`union`](#union)
 * [`unionWith`](#unionWith)
+* [`uniqueElements`](#uniqueElements)
 
 </details>
 
@@ -2117,6 +2118,27 @@ console.log(
     (a, b) => Math.round(a) === Math.round(b)
   )
 ); // [1, 1.2, 1.5, 3, 0, 3.9]);
+```
+
+</details>
+
+<br>[⬆ Back to top](#contents)
+
+
+### uniqueElements
+
+使用 ES6 的 `set` 和 `...rest` 解构运算符进行去重。
+
+```js
+const uniqueElements = arr => [...new Set(arr)]
+```
+
+<details>
+<summary>例子</summary
+
+
+```js
+console.log(uniqueElements([11,2,2,3,4,4,5]));
 ```
 
 </details>
