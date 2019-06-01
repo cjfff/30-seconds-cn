@@ -367,6 +367,11 @@ const toHash = (object, key) =>
 
 const union = (a, b) => Array.from(new Set([...a, ...b]));
 
+const unionWith = (a, b, comp) =>
+  Array.from(
+    new Set([...a, ...b.filter(x => a.findIndex(y => comp(x, y)) == -1)])
+  );
+
 module.exports = {
   all,
   allEqual,
@@ -442,5 +447,6 @@ module.exports = {
   takeRightWhile,
   takeWhile,
   toHash,
-  union
+  union,
+  unionWith
 };
