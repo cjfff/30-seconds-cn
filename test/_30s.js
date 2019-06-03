@@ -386,6 +386,13 @@ const uniqueElementsByRight = (arr, fn) =>
     return acc;
   }, []);
 
+const uniqueSymmetricDifference = (a, b) => [
+  ...new Set([
+    ...a.filter(v => !b.includes(v)),
+    ...b.filter(v => !a.includes(v))
+  ])
+];
+
 module.exports = {
   all,
   allEqual,
@@ -465,5 +472,6 @@ module.exports = {
   unionWith,
   uniqueElements,
   uniqueElementsBy,
-  uniqueElementsByRight
+  uniqueElementsByRight,
+  uniqueSymmetricDifference
 };
