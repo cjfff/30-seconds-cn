@@ -393,6 +393,14 @@ const uniqueSymmetricDifference = (a, b) => [
   ])
 ];
 
+const unzip = arr =>
+  arr.reduce(
+    (acc, val) => (val.forEach((v, i) => acc[i].push(v)), acc),
+    Array.from({
+      length: Math.max(...arr.map(x => x.length))
+    }).map(() => [])
+  );
+
 module.exports = {
   all,
   allEqual,
@@ -473,5 +481,6 @@ module.exports = {
   uniqueElements,
   uniqueElementsBy,
   uniqueElementsByRight,
-  uniqueSymmetricDifference
+  uniqueSymmetricDifference,
+  unzip
 };
