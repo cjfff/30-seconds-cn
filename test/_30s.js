@@ -401,6 +401,14 @@ const unzip = arr =>
     }).map(() => [])
   );
 
+const unzipWith = (arr, fn) =>
+  arr
+    .reduce(
+      (acc, val) => (val.forEach((v, i) => acc[i].push(v)), acc),
+      Array.from({ length: Math.max(...arr.map(x => x.length)) }, () => [])
+    )
+    .map(val => fn(...val));
+
 module.exports = {
   all,
   allEqual,
@@ -482,5 +490,6 @@ module.exports = {
   uniqueElementsBy,
   uniqueElementsByRight,
   uniqueSymmetricDifference,
-  unzip
+  unzip,
+  unzipWith
 };
