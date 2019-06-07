@@ -409,6 +409,8 @@ const unzipWith = (arr, fn) =>
     )
     .map(val => fn(...val));
 
+const without = (arr, ...args) => arr.filter(v => !args.includes(v));
+
 module.exports = {
   all,
   allEqual,
@@ -491,5 +493,6 @@ module.exports = {
   uniqueElementsByRight,
   uniqueSymmetricDifference,
   unzip,
-  unzipWith
+  unzipWith,
+  without
 };
