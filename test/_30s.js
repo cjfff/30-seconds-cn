@@ -411,6 +411,9 @@ const unzipWith = (arr, fn) =>
 
 const without = (arr, ...args) => arr.filter(v => !args.includes(v));
 
+const xProd = (a, b) =>
+  a.reduce((acc, x) => acc.concat(b.map(y => [x, y])), []);
+
 module.exports = {
   all,
   allEqual,
@@ -494,5 +497,6 @@ module.exports = {
   uniqueSymmetricDifference,
   unzip,
   unzipWith,
-  without
+  without,
+  xProd
 };
