@@ -414,6 +414,12 @@ const without = (arr, ...args) => arr.filter(v => !args.includes(v));
 const xProd = (a, b) =>
   a.reduce((acc, x) => acc.concat(b.map(y => [x, y])), []);
 
+const zip = (...arrays) => {
+  const maxLength = Math.max(...arrays.map(A => A.length));
+  return Array.from({ length: maxLength }, (_, i) =>
+    Array.from({ length: arrays.length }, (_, k) => arrays[k][i])
+  );
+};
 module.exports = {
   all,
   allEqual,
@@ -498,5 +504,6 @@ module.exports = {
   unzip,
   unzipWith,
   without,
-  xProd
+  xProd,
+  zip
 };
