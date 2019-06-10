@@ -420,6 +420,10 @@ const zip = (...arrays) => {
     Array.from({ length: arrays.length }, (_, k) => arrays[k][i])
   );
 };
+
+const zipObject = (props, values) =>
+  props.reduce((obj, prop, index) => ((obj[prop] = values[index]), obj), {});
+
 module.exports = {
   all,
   allEqual,
@@ -505,5 +509,6 @@ module.exports = {
   unzipWith,
   without,
   xProd,
-  zip
+  zip,
+  zipObject
 };
