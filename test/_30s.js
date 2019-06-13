@@ -432,6 +432,9 @@ const zipWith = (...array) => {
     fn ? fn(...array.map(a => a[i])) : array.map(a => a[i])
   );
 };
+
+const ary = (fn, n) => (...args) => fn(...args.slice(0, n));
+
 module.exports = {
   all,
   allEqual,
@@ -519,5 +522,6 @@ module.exports = {
   xProd,
   zip,
   zipObject,
-  zipWith
+  zipWith,
+  ary
 };
